@@ -1,4 +1,13 @@
 <?php
+include_once('../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+include_once('../vendor/phpmailer/phpmailer/src/SMTP.php');
+include_once('../vendor/phpmailer/phpmailer/src/Exception.php');
+
+$mail = new PHPMailer\PHPMailer\PHPMailer();
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+$mail->SetFrom('noreply@bedrollbmore.site','User');
+
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
